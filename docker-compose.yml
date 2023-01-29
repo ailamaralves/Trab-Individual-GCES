@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  db:
+    image: mongo
+    container_name: mongodb-container
+    env_file:
+      - ./env/.mongo
+    volumes:
+      - ../../mongodb/database:/data/db
+    
+
+  api:
+    build: "./src"
+    container_name: api-container    
+    volumes:
+      - ./src:/
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
