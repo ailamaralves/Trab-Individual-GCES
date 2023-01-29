@@ -1,0 +1,4 @@
+host=mongo
+dabase_name=db
+user=lappis
+password=lappis
