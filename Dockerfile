@@ -1,16 +1,8 @@
-FROM ubuntu:20.04
+FROM python:3.8
 
-RUN apt-get update -y && apt-get install -y tree
+RUN pip install -r dependencias.txt
 
-RUN mkdir -p test/nested && \
-    cd test && \
-    touch nested/a.txt b.txt
-
-RUN echo "current path: `pwd`"
-
-RUN ls --format=across
-
-RUN tree src/
+COPY . .
 
 WORKDIR /src
 
